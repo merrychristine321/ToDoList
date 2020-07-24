@@ -1,0 +1,11 @@
+CREATE TABLE user_info(
+	user_id VARCHAR(30) PRIMARY KEY,
+	user_pw VARCHAR(30) NOT NULL,
+	user_name VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE todolist(
+	list_id INT AUTO_INCREMENT PRIMARY KEY,
+	content VARCHAR(500) NOT NULL,
+	upload_date DATE NOT NULL
+);
