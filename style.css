@@ -1,0 +1,81 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: 'Nanum Pen Script', cursive;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(https://c0.wallpaperflare.com/preview/977/88/967/moon-night-sky-sunset.jpg) no-repeat;
+    background-size: cover;
+}
+
+/* Reset CSS */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 22px;
+    box-shadow: none;
+    outline: none;
+    border-radius: 6px;
+}
+
+button {
+    border: none;
+}
+
+ul,
+li {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+/* Login */
+
+.login {
+    text-align: center;
+}
+
+.login h1 {
+    font-size: 100px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.login-form {
+    border: 2px solid white;
+    border-radius: 6px;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form input {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 8px;
+    padding: 0 16px;
+    border: 1px solid white;
+}
+
+.login-form input[type=password] {
+    margin-bottom: 15px;
+}
+
+.login-btn {
+    height: 30px;
+    width: 50%;
+    background-color: #ddddff;
+    color: #542377
+}
