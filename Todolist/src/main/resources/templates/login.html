@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -10,12 +10,12 @@
 <body>
     <div class="login">
         <h1>My ToDoList</h1>
-        <form action="" class="login-form">
+        <form th:action="@{/nextPage-branch}" class="login-form">
             <input type="text" placeholder="ID를 입력해주세요" />
             <input type="password" placeholder="PW를 입력해주세요" />
             <div class="btn-group">
-            	<button type="submit" class="login-btn">로그인</button>
-            	<button type="submit" class="signup-btn">회원가입</button>
+            	<button type="submit" name="login-btn" class="login-btn">로그인</button>
+            	<button type="submit" name="signup-btn" class="signup-btn">회원가입</button>
             </div>
         </form>
     </div>

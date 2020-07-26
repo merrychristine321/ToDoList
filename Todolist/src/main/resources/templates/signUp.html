@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
 <title>Insert title here</title>
 </head>
 <body>
 <h1>회원정보 입력</h1>
+
+<form th:action="@{/goto-loginPage}" th:object="${userForm}" method="POST">
+	ID : <input type="text" th:field="*{userId}"><br>
+	PW : <input type="password" th:field="*{userPw}"><br> 
+	NAME : <input type="text" th:field="*{userName}"><br>
+	<input type="submit" name="back-btn" value="돌아가기"> 
+	<input type="submit" name="signUp-btn" value="회원가입">
+</form>
+
+
 </body>
 </html>
