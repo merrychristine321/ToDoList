@@ -9,5 +9,12 @@ public interface UserInfoMapper {
 	 * @param userForm
 	 */
 	public void insertUserInfo(UserForm userForm);
+	
+	/**
+	 * ID 중복체크
+	 * @param userId
+	 * @return
+	 */
+	public String checkID(String userId);
 
 }

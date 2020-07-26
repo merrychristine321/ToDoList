@@ -2,9 +2,13 @@ package com.example.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.service.DBUserService;
 
@@ -49,12 +53,34 @@ public class TodoController {
 		return "redirect:/login";
 	}
 	
-	
+	/**
+	 * 회원정보 등록
+	 * @param userForm
+	 * @return
+	 */
 	@RequestMapping(value="/goto-loginPage",params="signUp-btn",method=RequestMethod.POST)
-	public String insertUserInfo(UserForm userForm) {
+	public String insertUserInfo(@Validated UserForm userForm,BindingResult result,@RequestParam("pwCheck")String pwCheck,Model model) {
 		
+		//필수사항 미입력 체크
+		if(result.hasErrors()) {
+			return "signUp";
+		}
+		
+		//비밀번호 일치여부 체크
+		if(!userForm.getUserPw().equals(pwCheck)) {
+			model.addAttribute("errMessage","비밀번호가 일치하지 않습니다.");
+			return "signUp";
+		}
+		
+		//ID중복 체크
+		boolean idCheck = userService.checkID(userForm.getUserId());
+		if(!idCheck) {
+			model.addAttribute("IDerrMessage","이미 등록된 ID입니다.");
+			return "signUp";
+		}
+		
+		//회원정보 등록
 		userService.insertUserInfo(userForm);
-		
 		
 		return "login";
 	}

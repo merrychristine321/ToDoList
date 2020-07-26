@@ -8,8 +8,13 @@
 <h1>회원정보 입력</h1>
 
 <form th:action="@{/goto-loginPage}" th:object="${userForm}" method="POST">
-	ID : <input type="text" th:field="*{userId}"><br>
-	PW : <input type="password" th:field="*{userPw}"><br> 
+	
+	<p th:if="${#fields.hasErrors('all')}">필수사항을 입력해 주세요!</p>
+      <p th:errors="*{all}" class="error-message">error！</p>
+	
+	ID : <input type="text" th:field="*{userId}"><span th:text="${IDerrMessage}"></span><br>
+	PW : <input type="password" th:field="*{userPw}"><span th:text="${errMessage}"></span><br> 
+	PW(확인) : <input type="password" name="pwCheck"><br> 
 	NAME : <input type="text" th:field="*{userName}"><br>
 	<input type="submit" name="back-btn" value="돌아가기"> 
 	<input type="submit" name="signUp-btn" value="회원가입">
